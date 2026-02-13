@@ -1,0 +1,60 @@
+html,
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Asegura que esté en una capa controlada */
+    pointer-events: none; /* Importante: deja que los clicks pasen a través del corazón si hay botones debajo */
+}
+
+/* Asegúrate de que el canvas también ocupe todo */
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#pinkboard {
+    opacity: 0; 
+    transform: scale(0); 
+    animation: openHeart 5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+@keyframes openHeart {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); 
+    }
+}
+
+.message {
+    position: absolute;
+    top: 60%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 2.5rem; 
+    color: #ffcccc; 
+    text-shadow: 0 0 10px #ff0000;
+    
+    z-index: 100; 
+    pointer-events: none; 
+    
+    opacity: 0; 
+    animation: fadeInText 3s ease-in forwards;
+    animation-delay: 4s; 
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translate(-50%, -30%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
